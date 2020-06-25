@@ -1,0 +1,5 @@
+<p>Product list</p>
+<input type="text" (change)="filter()" [(ngModel)]="productFilterInput">
+<div *ngIf="selectedProduct !== undefined" style="background-color:mediumvioletred;border: 1px solid black">{{selectedProduct}}</div>
+<app-product appShowPrice [price]="p.price" [promo]="p.promo" *ngFor="let p of filter()" [p]="p" (outputSelection)="updateSelection($event)"></app-product>
+
